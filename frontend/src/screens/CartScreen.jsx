@@ -51,7 +51,7 @@ const CartScreen = () => {
                   <Col md={4}>
                     <Link to={`/product/${item._id}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>₹{item.price}</Col>
+                  <Col md={2}>${item.price}</Col>
                   <Col md={2}>
                     <Form.Control
                       as="select"
@@ -86,7 +86,7 @@ const CartScreen = () => {
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
               </h2>
               <h5>
-                ₹
+                $
                 {cartItems
                   .reduce((acc, item) => acc + item.price * item.qty, 0)
                   .toFixed(2)}
