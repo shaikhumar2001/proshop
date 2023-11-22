@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Row, Col } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
-import { FaEdit, FaTrash, FaBriefcase } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import Paginate from "../../components/Paginate";
@@ -60,9 +60,6 @@ const ProductListScreen = () => {
     }
   };
 
-  const manageCategoriesHandler = async () => {
-    console.log("Manage Categories");
-  };
 
   return (
     <>
