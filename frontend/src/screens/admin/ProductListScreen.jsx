@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Row, Col } from "react-bootstrap";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { useParams, useNavigate } from "react-router-dom";
+import { FaEdit, FaTrash, FaBriefcase } from "react-icons/fa";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
+import Paginate from "../../components/Paginate";
 import { toast } from "react-toastify";
 import {
   useGetProductsQuery,
@@ -11,7 +14,11 @@ import {
 } from "../../slices/productsApiSlice";
 
 const ProductListScreen = () => {
-  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
+    pageNumber,
+  });
 
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
@@ -19,11 +26,22 @@ const ProductListScreen = () => {
   const [deleteProduct, { isLoading: loadingDelete }] =
     useDeleteProductMutation();
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!data) {
+      navigate("/admin/productlist");
+    }
+  }, [data, navigate]);
+
   const deleteHandler = async (productId) => {
     if (window.confirm("Are you sure you want to Delete this product ?")) {
       try {
         deleteProduct(productId);
-        toast.success('Product Deleted')
+        if (!data) {
+          navigate("/admin/productlist");
+        }
+        toast.success("Product Deleted");
         refetch();
       } catch (err) {
         toast.error(err?.data?.message || err.error);
@@ -42,6 +60,10 @@ const ProductListScreen = () => {
     }
   };
 
+  const manageCategoriesHandler = async () => {
+    console.log("Manage Categories");
+  };
+
   return (
     <>
       <Row className="align-items-center">
@@ -52,6 +74,11 @@ const ProductListScreen = () => {
           <Button className="btn-sm m-2" onClick={createProductHandler}>
             <FaEdit /> Create Product
           </Button>
+          <LinkContainer to={"/admin/categorylist"}>
+            <Button className="btn-sm m-2" onClick={manageCategoriesHandler}>
+              <FaBriefcase /> Manage Categories
+            </Button>
+          </LinkContainer>
         </Col>
       </Row>
 
@@ -75,7 +102,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {data.products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
@@ -100,6 +127,12 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
+          <Paginate
+            pages={data.pages}
+            page={data.page}
+            isAdmin={true}
+            goBackValue={"/admin/productlist"}
+          />
         </>
       )}
     </>

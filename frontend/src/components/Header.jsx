@@ -5,6 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
+import SearchBox from "./SearchBox";
 import logo from "../assets/logo.png";
 
 const Header = () => {
@@ -39,6 +40,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <SearchBox />
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <FaShoppingCart /> Cart
@@ -70,20 +72,19 @@ const Header = () => {
                 </LinkContainer>
               )}
 
-              { userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='admin'>
-                  <LinkContainer to='/admin/productlist'>
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title="Admin" id="admin">
+                  <LinkContainer to="/admin/productlist">
                     <NavDropdown.Item>Products</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/userlist'>
+                  <LinkContainer to="/admin/userlist">
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/orderlist'>
+                  <LinkContainer to="/admin/orderlist">
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
-              ) }
-
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
