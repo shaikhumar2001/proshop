@@ -74,11 +74,6 @@ const ProductListScreen = () => {
           <Button className="btn-sm m-2" onClick={createProductHandler}>
             <FaEdit /> Create Product
           </Button>
-          <LinkContainer to={"/admin/categorylist"}>
-            <Button className="btn-sm m-2" onClick={manageCategoriesHandler}>
-              <FaBriefcase /> Manage Categories
-            </Button>
-          </LinkContainer>
         </Col>
       </Row>
 
