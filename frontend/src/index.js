@@ -28,7 +28,6 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.jsx";
 import OrderScreen from "./screens/OrderScreen.jsx";
 import ProfileScreen from "./screens/ProfileScreen.jsx";
 import OrderListScreen from "./screens/admin/OrderListScreen.jsx";
-import CategoryListScreen from "./screens/admin/CategoryListScreen.jsx";
 import ProductListScreen from "./screens/admin/ProductListScreen.jsx";
 import UserListScreen from "./screens/admin/UserListScreen.jsx";
 import ProductEditScreen from "./screens/admin/ProductEditScreen.jsx";
@@ -59,7 +58,6 @@ const router = createBrowserRouter(
 
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist" element={<OrderListScreen />} />
-        <Route path="/admin/categorylist" element={<CategoryListScreen />} />
         <Route path="/admin/productlist" element={<ProductListScreen />} />
         <Route
           path="/admin/productlist/:pageNumber"
