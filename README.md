@@ -1,11 +1,8 @@
 # ProShop E-Commerce Platform
 
-[![GitHub license](https://img.shields.io/github/license/shaikhumar2001/proshop)](https://github.com/shaikhumar2001/proshop/blob/main/LICENSE)
 [![MERN Stack](https://img.shields.io/badge/Stack-MERN-brightgreen)](https://www.mongodb.com/mern-stack)
 
 ProShop is a full-stack e-commerce platform built with the MERN stack (MongoDB, Express.js, React, Node.js). It includes features like user authentication, product management, shopping cart, order processing, and an admin dashboard.
-
-![ProShop Demo](https://via.placeholder.com/800x400.png?text=ProShop+Demo+Screenshots)
 
 ## Features
 
@@ -108,30 +105,10 @@ Ensure you have:
 
 ## Live Demo
 
-Check out the deployed version: [ProShop Live Demo](https://your-proshop-deployment-link.com)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Check out the deployed version: [ProShop Live Demo](https://proshop-omega.vercel.app/)
 
 ## Contact
 
 Umar Shaikh  
 📧 shaikhumar2001@gmail.com  
-💼 [LinkedIn Profile](https://linkedin.com/in/your-profile)
-
----
-
-**Contribution**  
-Feel free to submit issues and pull requests. See [CONTRIBUTUTING.md](CONTRIBUTING.md) for guidelines.
-
----
-
-**To use this README:**
-1. Copy all text from this message
-2. Paste into a new file named `README.md`
-3. Replace placeholder values (marked in yellow/orange)
-4. Add actual screenshots and update image paths
-5. Update contact information
-
-My apologies for the previous formatting errors - this version is now properly formatted as raw markdown text you can directly use.
+💼 [LinkedIn Profile](https://www.linkedin.com/in/shaikhumar2001/)
